@@ -1,4 +1,4 @@
-# Yatube
+# DjangoTube
 
 [![CI](https://github.com/BU-Marina/Yatube/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/BU-Marina/Yatube/actions/workflows/python-app.yml)
 
@@ -6,7 +6,7 @@
 
 ## Описание
 
-Yatube - социальная сеть, в которой можно создать учетную запись, публиковать посты, подписываться на любимых авторов и комментировать их записи.
+Cоциальная сеть, в которой можно создать учетную запись, публиковать посты, подписываться на любимых авторов и комментировать их записи.
 
 ## Технологии
 
