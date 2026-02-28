@@ -2,21 +2,23 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR_NAME = 'djangotube'
-# поддерживаем оба варианта: djangotube/ в корне или src/djangotube/
-MANAGE_PATH = os.path.join(BASE_DIR, PROJECT_DIR_NAME)
-if not os.path.isdir(MANAGE_PATH):
-    MANAGE_PATH = os.path.join(BASE_DIR, 'src', PROJECT_DIR_NAME)
-if not os.path.isdir(MANAGE_PATH):
-    assert False, (
-        f'В директории `{BASE_DIR}` не найдена папка c проектом `{PROJECT_DIR_NAME}` '
-        f'(ни `{PROJECT_DIR_NAME}/`, ни `src/{PROJECT_DIR_NAME}/`). '
-        f'Убедитесь, что у вас верная структура проекта.'
-    )
-
-project_dir_content = os.listdir(MANAGE_PATH)
 FILENAME = 'manage.py'
-# проверяем, что структура проекта верная, и manage.py на месте
-if FILENAME not in project_dir_content:
+
+# Вариант 1: djangotube/ в корне, manage.py внутри
+MANAGE_PATH = os.path.join(BASE_DIR, PROJECT_DIR_NAME)
+# Вариант 2: src/ с manage.py и src/djangotube/
+if not os.path.isdir(MANAGE_PATH) or not os.path.isfile(os.path.join(MANAGE_PATH, FILENAME)):
+    src_path = os.path.join(BASE_DIR, 'src')
+    if os.path.isdir(src_path) and os.path.isfile(os.path.join(src_path, FILENAME)):
+        MANAGE_PATH = src_path
+    elif not os.path.isdir(MANAGE_PATH):
+        assert False, (
+            f'В директории `{BASE_DIR}` не найдена папка c проектом `{PROJECT_DIR_NAME}` '
+            f'(ни `{PROJECT_DIR_NAME}/`, ни `src/` с manage.py). '
+            f'Убедитесь, что у вас верная структура проекта.'
+        )
+
+if not os.path.isfile(os.path.join(MANAGE_PATH, FILENAME)):
     assert False, (
         f'В директории `{MANAGE_PATH}` не найден файл `{FILENAME}`. '
         f'Убедитесь, что у вас верная структура проекта.'
