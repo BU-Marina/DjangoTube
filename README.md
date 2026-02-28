@@ -1,6 +1,6 @@
 # DjangoTube
 
-[![CI](https://github.com/BU-Marina/Yatube/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/BU-Marina/Yatube/actions/workflows/python-app.yml)
+[![CI](https://github.com/BU-Marina/DjangoTube/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/BU-Marina/DjangoTube/actions/workflows/python-app.yml)
 
 Социальная сеть для просмотра постов на Django.
 
@@ -27,11 +27,11 @@ Cоциальная сеть, в которой можно создать уче
 Клонировать репозиторий и перейти в него в командной строке:
 
 ```
-git clone https://github.com/Marina-ui/Yatube
+git clone https://github.com/Marina-ui/DjangoTube
 ```
 
 ```
-cd Yatube
+cd Djangotube
 ```
 
 Cоздать и активировать виртуальное окружение:
@@ -66,7 +66,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Запуск тестов из директории Yatube:
+Запуск тестов из директории Djangotube:
 
 ```
 pytest
